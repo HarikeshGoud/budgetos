@@ -25,7 +25,7 @@ PROJECT_ID=$(curl -s -X POST "https://api.vercel.com/v10/projects" \
 
 echo "→ Project created: $PROJECT_ID"
 
-for KEY_VAL in "TURSO_DATABASE_URL|$TURSO_URL" "TURSO_AUTH_TOKEN|$TURSO_TOKEN" "SITE_PASSWORD|$SITE_PASSWORD"; do
+for KEY_VAL in "TURSO_DATABASE_URL|$TURSO_URL" "TURSO_AUTH_TOKEN|$TURSO_TOKEN" "SITE_PASSWORD|$SITE_PASSWORD" "DATABASE_URL|file:./dev.db"; do
   KEY="${KEY_VAL%%|*}"; VAL="${KEY_VAL#*|}"
   curl -s -X POST "https://api.vercel.com/v10/projects/$PROJECT_ID/env" \
     -H "Authorization: Bearer $VERCEL_TOKEN" -H "Content-Type: application/json" \
