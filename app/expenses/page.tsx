@@ -165,7 +165,7 @@ export default function ExpensesPage() {
               className="glass-card rounded-2xl p-6 w-full max-w-lg max-h-[90vh] overflow-y-auto">
               <ExpenseForm
                 currency={currency}
-                initialData={{ ...editExpense, date: new Date(editExpense.date).toISOString().split('T')[0] }}
+                initialData={{ ...editExpense, amount: String(editExpense.amount), date: new Date(editExpense.date).toISOString().split('T')[0] }}
                 onClose={() => setEditExpense(null)}
                 onSuccess={() => { setEditExpense(null); load() }}
               />
